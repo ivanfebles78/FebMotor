@@ -4,13 +4,14 @@
 
 ## Estado
 
-Versión inicial funcional **0.1**, orientada a un piloto. No representa todavía la totalidad del producto acordado. Incluye demostraciones explícitas con datos ficticios y cuentas reales con persistencia en PostgreSQL. La demo no se guarda ni envía avisos.
+Versión inicial funcional **0.2**, orientada a un piloto. No representa todavía la totalidad del producto acordado. Incluye demostraciones explícitas con datos ficticios y cuentas reales con persistencia en PostgreSQL. La demo no se guarda ni envía avisos.
 
 ### Implementado
 
 - Registro de clientes y organizaciones (taller independiente o cadena), inicio y cierre de sesión.
 - Contraseñas con scrypt y sal aleatoria; sesiones opacas con expiración, cookie HTTP-only y token para futuro cliente móvil.
 - Organizaciones aisladas y acceso de empleados limitado por centro. Notas internas y costes internos excluidos de las respuestas al cliente.
+- Superadmin con vista global de organizaciones, centros, usuarios, vehículos, órdenes y auditoría; las cuentas de taller mantienen su aislamiento.
 - Roles talleradmin, responsable_centro, recepcion y mecanico; permiso explícito de presupuesto para mecánicos.
 - Varios centros, catálogo de servicios, precio, duración, horario y capacidad básica por centro.
 - Vehículos por cliente, directorio de servicios, disponibilidad, reservas y cancelación.
@@ -24,7 +25,7 @@ Versión inicial funcional **0.1**, orientada a un piloto. No representa todaví
 
 ### Pendiente antes de un lanzamiento comercial
 
-Ver [alcance y próximos módulos](docs/PRODUCTO.md). En particular: superadmin, personalización avanzada, permisos editables tras el alta, acceso compartido/delegación, registro de citas telefónicas y sin cita, recursos y empleados individuales en agenda, fotos y documentos, presupuesto inicial desglosado/aceptación parcial, diagnóstico descontable, límites de gasto, señales y políticas de cancelación, recordatorios, email/SMS/WhatsApp, pagos, facturación, recuperación/verificación de correo y apps nativas.
+Ver [alcance y próximos módulos](docs/PRODUCTO.md). En particular: personalización avanzada, permisos editables tras el alta, acceso compartido/delegación, registro de citas telefónicas y sin cita, recursos y empleados individuales en agenda, fotos y documentos, presupuesto inicial desglosado/aceptación parcial, diagnóstico descontable, límites de gasto, señales y políticas de cancelación, recordatorios, email/SMS/WhatsApp, pagos, facturación, recuperación/verificación de correo y apps nativas.
 
 **No hay envíos externos, cobros ni facturas fiscales.** Los presupuestos de esta versión son importes totales de servicio y propuestas adicionales, no un sistema de facturación.
 
@@ -67,3 +68,7 @@ El idioma inicial es español y los centros se crean con zona `Atlantic/Canary`,
 ## Móvil
 
 La web ya es adaptable, pero **no es todavía una aplicación nativa ni una PWA offline**. La siguiente entrega será React Native + Expo para iOS y Android usando la misma API. Railway aloja el backend; Expo compila y las tiendas distribuyen los binarios. Ver [docs/MOBILE.md](docs/MOBILE.md).
+
+## Administración de plataforma
+
+El superadmin inicia sesión con el identificador `superadmin` y dispone de un panel global. Su cuenta se aprovisiona de forma privada y no se puede crear mediante el registro público ni mediante los permisos de un taller. Las respuestas de la API nunca incluyen hashes de contraseñas. El acceso global no permite aceptar presupuestos en nombre del cliente: la autorización económica sigue correspondiendo a la persona designada.

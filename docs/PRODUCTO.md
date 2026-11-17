@@ -6,7 +6,7 @@ Plataforma genérica para talleres y cadenas de distintas especialidades. Organi
 
 ## Roles
 
-Superadmin de plataforma (pendiente); talleradmin de su organización; responsable_centro de centros asignados; recepcion y mecanico. El taller determina si un mecánico puede presupuestar. Cliente es un tipo de usuario adicional, con acceso solo a sus intervenciones. No se permite autoasignar roles de plataforma.
+Superadmin de plataforma con acceso global; talleradmin de su organización; responsable_centro de centros asignados; recepcion y mecanico. El taller determina si un mecánico puede presupuestar. Cliente es un tipo de usuario adicional, con acceso solo a sus intervenciones. No se permite autoasignar roles de plataforma.
 
 ## Recorrido
 
@@ -22,7 +22,7 @@ Los tiempos se muestran como rangos aproximados. Se distingue trabajo efectivo d
 |---|---|---|
 | Identidad | Registro, sesión, contraseñas protegidas | Verificación, recuperación, invitaciones |
 | Talleres y cadenas | Organizaciones y varios centros | Personalización, calendario/zona por centro |
-| Roles | Cuatro roles de taller, cliente, permisos iniciales | Superadmin, edición de permisos y asignaciones |
+| Roles | Superadmin, cuatro roles de taller, cliente, permisos iniciales | Edición de permisos y asignaciones |
 | Agenda | Capacidad básica, servicio y duración; reserva online | Empleados, elevadores, recursos, pausas, festivos, urgencias y entrada manual |
 | Vehículos | Varios por cliente | Acceso compartido y autorizadores delegados |
 | Recepción | Kilometraje, combustible, llaves y daños escritos | Fotos, checklist configurable y confirmación del cliente |

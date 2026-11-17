@@ -1,9 +1,9 @@
 export const PHASES=['Recepción','Diagnóstico','Reparación','Control de calidad','Listo para recoger','Entregado'];
 export const ROLES=['talleradmin','responsable_centro','recepcion','mecanico'];
 export function assert(ok,message='Operación no permitida',status=400){if(!ok){const e=new Error(message);e.status=status;throw e;}}
-export function canManage(user,centerId){return user.role==='talleradmin'||(['responsable_centro','recepcion','mecanico'].includes(user.role)&&user.centerIds?.includes(centerId));}
+export function canManage(user,centerId){return user.role==='superadmin'||user.role==='talleradmin'||(['responsable_centro','recepcion','mecanico'].includes(user.role)&&user.centerIds?.includes(centerId));}
 export function canQuote(user,centerId){return canManage(user,centerId)&&(user.role!=='mecanico'||user.canQuote===true);}
-export function visibleOrder(user,order){return user.role==='cliente'?order.customerId===user.id:order.orgId===user.orgId&&canManage(user,order.centerId);}
+export function visibleOrder(user,order){return user.role==='superadmin'||(user.role==='cliente'?order.customerId===user.id:order.orgId===user.orgId&&canManage(user,order.centerId));}
 export function customerOrder(order){const {internalNotes,costPrice,...safe}=order;return safe;}
 export function euroCents(value){const n=Number(value);assert(Number.isFinite(n)&&n>=0&&n<=1000000,'Importe inválido');return Math.round(n*100);}
 export function validateRange(from,to){assert(from&&to&&Number.isFinite(Date.parse(from))&&Number.isFinite(Date.parse(to))&&Date.parse(from)<=Date.parse(to),'Indica un rango de entrega válido');}
