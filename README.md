@@ -72,3 +72,5 @@ La web ya es adaptable, pero **no es todavía una aplicación nativa ni una PWA 
 ## Administración de plataforma
 
 El superadmin inicia sesión con el identificador `superadmin` y dispone de un panel global. Su cuenta se aprovisiona de forma privada y no se puede crear mediante el registro público ni mediante los permisos de un taller. Las respuestas de la API nunca incluyen hashes de contraseñas. El acceso global no permite aceptar presupuestos en nombre del cliente: la autorización económica sigue correspondiendo a la persona designada.
+
+El mecanismo temporal de alta firmada del primer superadmin se retiró tras completar su aprovisionamiento. No hay un endpoint público para crear o restablecer cuentas de plataforma.
