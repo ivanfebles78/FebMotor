@@ -4,3 +4,31 @@
 .table-panel{overflow-x:auto}table{width:100%;border-collapse:collapse;text-align:left;font-size:12px}th{font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px;background:#f7f9fa}th,td{padding:14px 12px;border-bottom:1px solid var(--line)}td{vertical-align:middle}tbody tr:last-child td{border-bottom:0}.block{display:block}.organization-card{border:1px solid var(--line);border-radius:9px;margin-top:17px;padding:18px}.organization-card .section-head{margin-bottom:6px}.organization-card h3{font-size:16px}
 
 @media(max-width:500px){.sidebar nav{justify-content:flex-start;overflow-x:auto}.sidebar nav button{min-width:68px;flex:1 0 68px}}
+
+/* Readable vehicle tracking: generous phase icons on desktop and mobile. */
+.tracking-overview .timeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:22px 0}
+.tracking-overview .timeline-item{display:flex;align-items:center;gap:12px;text-align:left;padding:16px 12px;min-width:0;border:1px solid var(--line);border-radius:12px;background:#fafbfc}
+.tracking-overview .timeline-item:before{display:none}
+.tracking-overview .timeline-item>.phase-icon{width:56px;height:56px;flex:0 0 56px;border-radius:16px;border:1px solid #dce5e8;background:#f1f4f6;color:#748590}
+.tracking-overview .timeline-item>.phase-icon svg{width:28px;height:28px}
+.tracking-overview .timeline-item>div{min-width:0}
+.tracking-overview .phase-number{display:block;font-size:11px;line-height:1.4;color:#657985;margin-bottom:4px;font-weight:600}
+.tracking-overview .timeline-item strong{font-size:14px;line-height:1.35;margin:0;overflow-wrap:anywhere}
+.tracking-overview .timeline-item small{display:block;font-size:12px;line-height:1.4;margin-top:5px;color:#657985}
+.tracking-overview .timeline-item.completed>.phase-icon{background:#e7f5f1;color:#00786b;border-color:#c4e6dc}
+.tracking-overview .timeline-item.current{border:2px solid var(--teal);background:#f0faf6;padding:15px 11px;box-shadow:0 3px 12px #008e8010}
+.tracking-overview .timeline-item.current>.phase-icon{background:var(--teal);color:white;border-color:var(--teal)}
+.tracking-overview .timeline-item.current small{color:#006d61;font-weight:700}
+.order-layout .customer-update>svg{width:28px;height:28px}
+.order-layout .customer-update strong{font-size:14px}
+.order-layout .customer-update p{font-size:14px;line-height:1.6}
+.order-layout .task-dot{width:42px;height:42px;flex:0 0 42px}
+.order-layout .task-dot svg{width:23px;height:23px}
+.order-layout .list-row strong{font-size:14px;line-height:1.45}
+.order-layout .list-row p{font-size:13px}
+.order-layout .list-row>select{min-height:44px;font-size:12px}
+.order-layout .delivery-box>svg{width:28px;height:28px}
+.order-layout .delivery-box small{font-size:12px}
+.order-layout .delivery-box strong{font-size:14px;line-height:1.6}
+@media(max-width:1200px){.tracking-overview .timeline{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.tracking-overview .timeline{grid-template-columns:1fr;gap:12px}.tracking-overview .timeline-item{padding:16px;gap:16px}.tracking-overview .timeline-item.current{padding:15px}.tracking-overview .timeline-item>.phase-icon{width:60px;height:60px;flex-basis:60px}.tracking-overview .timeline-item>.phase-icon svg{width:30px;height:30px}.tracking-overview .timeline-item strong{font-size:16px}.tracking-overview .timeline-item small{font-size:13px}.tracking-overview .phase-number{font-size:12px}}
